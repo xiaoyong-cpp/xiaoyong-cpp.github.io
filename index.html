@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>暗色风格标签页切换</title>
+    <title>xiaoyong-cpp 个人网站(Github Pages)</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -14,7 +14,9 @@
             <button class="tab-btn" data-tab="tab3">库</button>
             <button class="tab-btn" data-tab="tab4">关于</button>
         </div>
+        
         <div class="tab-content">
+            <!-- 标签页1：主页 -->
             <div id="tab1" class="tab-panel active">
                 <h2>xiaoyong-cpp 个人网站(Github Pages)</h2>
                 <p>用户账号</p>
@@ -39,24 +41,42 @@
                     <a href="https://ac.nowcoder.com/acm/contest/profile/744301527">Iodine</a>
                 </div>
             </div>
-            <!-- 没做
+            
+            <!-- 标签页2：资源 -->
             <div id="tab2" class="tab-panel">
-                <h2>标签页 2 内容</h2>
-                <p>这是标签页 2 的内容区域，展示不同的内容。</p>
-                <div class="card">
+                <!-- 如果这里需要卡片，请补全完整的卡片结构 -->
+                <!-- <div class="card">
                     <h3>卡片标题</h3>
                     <p>这是标签页 2 中的卡片内容。</p>
-                </div>
+                </div> -->
             </div>
+            
+            <!-- 标签页3：库 -->
             <div id="tab3" class="tab-panel">
-                <h2>标签页 3 内容</h2>
-                <p>这是标签页 3 的内容区域，包含更多示例内容。</p>
-                <div class="card">
-                    <h3>卡片标题</h3>
-                    <p>这是标签页 3 中的卡片内容。</p>
+                <h2>库</h2>
+                <div class="card-license">
+                    <p>特殊声明：本网站提供的所有第三方库均为我个人开发，遵循</p>
+                    <a href="https://mit-license.org/">MIT开源协议</a>
+                    <p>您可以在遵守协议的前提下自由使用、修改和分发这些库。</p>
+                </div>
+                <div class="library-card">
+                    <h3>MiniJSON</h3>
+                    <p>MiniJSON是一个轻量级的JSON解析库，支持C++11及以上版本。</p>
+                    <a href="libraries/minijson/minijson.7z">下载7z</a>
+                </div>
+                <div class="library-card">
+                    <h3>EasyDLL</h3>
+                    <p>EasyDLL是一个轻量级的动态链接库加载库，提供新手有好的DLL加载方式，支持C++11及以上版本。</p>
+                    <a href="libraries/easydll/easydll.7z">下载7z</a>
+                </div>
+                <div class="library-card">
+                    <h3>NDL (Namespace Directory Language)</h3>
+                    <p>NDL是一个轻量级的C++库，用于加载和修改自定义语言.ndl。</p>
+                    <a href="libraries/ndl/ndl.7z">下载7z</a>
                 </div>
             </div>
-            -->
+            
+            <!-- 标签页4：关于 -->
             <div id="tab4" class="tab-panel">
                 <h2>凌云信奥</h2>
                 <p>一个创建于2024年11月的信息学奥赛团队。</p>

@@ -1,4 +1,4 @@
-* {
+﻿* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -135,6 +135,52 @@ body {
 .user-card a {
     color: #aedfff;
     text-decoration: none;
+}
+
+.card-license {
+    display: inline-block;
+    white-space: nowrap; /* 强制一行显示 */
+}
+
+.card-license p {
+    display: inline-block;
+    margin: 0; /* 去除默认边距 */
+}
+
+.card-license a {
+    display: inline-block;
+    color: #e1d89e;
+    font-style: normal;
+    text-decoration: none; /* 去除下划线 */
+}
+
+.card-license a:hover {
+    background-color: rgba(111, 212, 255, 0.311);
+    transition: all 0.3s ease;
+    border-radius: 4px;
+    color: #9ecde1;
+}
+
+.library-card {
+    align-items: center;
+    gap: 10px;
+    background-color: #252526;
+    border-radius: 8px;
+    padding: 24px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    border-left: 4px solid #007acc;
+    margin-bottom: 20px;
+}
+
+.library-card a {
+    color: #aedfff;
+    text-decoration: none;
+}
+
+.library-card a:hover {
+    background-color: rgba(111, 212, 255, 0.311);
+    transition: all 0.3s ease;
+    border-radius: 4px;
 }
 
 .user-card a:hover {
