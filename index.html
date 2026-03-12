@@ -1,21 +1,76 @@
-<!DOCTYPE html>
-<html>
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
-    <title>中英文切换示例</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>暗色风格标签页切换</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body class="body">
-    <div class="container">
-        <div>
-            <button onclick="switchLanguage('zh')">中文</button>
-            <button onclick="switchLanguage('en')">English</button>
+<body>
+    <div class="tab-container">
+        <div class="tab-header">
+            <button class="tab-btn active" data-tab="tab1">主页</button>
+            <button class="tab-btn" data-tab="tab2">资源</button>
+            <button class="tab-btn" data-tab="tab3">库</button>
+            <button class="tab-btn" data-tab="tab4">关于</button>
         </div>
-        
-        <h1 id="title">欢迎来到我的网站</h1>
-        <p id="description">这是一个多语言示例</p>
-        <button id="action-btn" class="button">点击我</button>
+        <div class="tab-content">
+            <div id="tab1" class="tab-panel active">
+                <h2>xiaoyong-cpp 个人网站(Github Pages)</h2>
+                <p>用户账号</p>
+                <div class="user-card">
+                    <img src="icons/luogu.svg" width="32" height="32">
+                    <h3>洛谷</h3>
+                    <a href="https://www.luogu.com.cn/user/1590356">ckj20111020</a>
+                </div>
+                <div class="user-card">
+                    <img src="icons/codeforces.png" width="32" height="32">
+                    <h3>CodeForces</h3>
+                    <a href="https://codeforces.com/profile/ckj20111020CF">ckj20111020CF</a>
+                </div>
+                <div class="user-card">
+                    <img src="icons/atcoder.png" width="32" height="32">
+                    <h3>AtCoder</h3>
+                    <a href="https://atcoder.jp/users/ckj20111020">ckj20111020</a>
+                </div>
+                <div class="user-card">
+                    <img src="icons/nowcoder-acm.png" width="32" height="32">
+                    <h3>牛客竞赛</h3>
+                    <a href="https://ac.nowcoder.com/acm/contest/profile/744301527">Iodine</a>
+                </div>
+            </div>
+            <!-- 没做
+            <div id="tab2" class="tab-panel">
+                <h2>标签页 2 内容</h2>
+                <p>这是标签页 2 的内容区域，展示不同的内容。</p>
+                <div class="card">
+                    <h3>卡片标题</h3>
+                    <p>这是标签页 2 中的卡片内容。</p>
+                </div>
+            </div>
+            <div id="tab3" class="tab-panel">
+                <h2>标签页 3 内容</h2>
+                <p>这是标签页 3 的内容区域，包含更多示例内容。</p>
+                <div class="card">
+                    <h3>卡片标题</h3>
+                    <p>这是标签页 3 中的卡片内容。</p>
+                </div>
+            </div>
+            -->
+            <div id="tab4" class="tab-panel">
+                <h2>凌云信奥</h2>
+                <p>一个创建于2024年11月的信息学奥赛团队。</p>
+                <div class="user-card">
+                    <img src="icons/luogu.svg" width="32" height="32">
+                    <a href="https://www.luogu.com.cn/">洛谷团队(链接暂缺)</a>
+                </div>
+                <div class="user-card">
+                    <img src="icons/codeforces.png" width="32" height="32">
+                    <a href="https://codeforces.com/team/202714">CodeForces团队</a>
+                </div>
+            </div>
+        </div>
     </div>
-
-    <script src="language_support.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

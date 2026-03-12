@@ -1,0 +1,179 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Consolas', '黑体', monospace;
+    background-color: #121212;
+    color: #e0e0e0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.tab-container {
+    width: 100vw;
+    height: 100vh;
+    background-color: #1e1e1e;
+    border-radius: 0;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+}
+
+.tab-header {
+    display: flex;
+    background-color: #252526;
+    border-bottom: 1px solid #3e3e42;
+    padding: 0 20px;
+}
+
+.tab-btn {
+    padding: 16px 24px;
+    background: none;
+    border: none;
+    color: #9e9e9e;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+    border-bottom: 2px solid transparent;
+}
+
+.tab-btn:hover {
+    color: #e0e0e0;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.tab-btn.active {
+    color: #007acc;
+    border-bottom-color: #007acc;
+}
+
+.tab-content {
+    height: calc(100vh - 56px);
+    overflow-y: auto;  /* 添加滚动条 */
+    display: flex;
+    flex-direction: column;
+    gap: 30px;  /* 设置panel之间的间距 */
+    padding: 20px;  /* 添加内边距 */
+}
+
+.tab-panel {
+    position: relative;  /* 改为相对定位 */
+    top: auto;
+    left: auto;
+    width: 100%;
+    height: auto;  /* 高度自适应 */
+    padding: 40px;
+    opacity: 1;  /* 始终显示 */
+    transform: none;  /* 移除动画效果 */
+    transition: none;  /* 移除过渡效果 */
+    pointer-events: all;
+    background-color: #1e1e1e;  /* 添加背景色以便区分 */
+    border-radius: 8px;  /* 添加圆角 */
+}
+
+/* 或者保留动画效果，但改为垂直排列 */
+.tab-panel {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    height: auto;
+    padding: 40px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+    display: none;  /* 默认隐藏 */
+}
+
+.tab-panel.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+    display: block;  /* 显示当前panel */
+    margin-bottom: 30px;  /* 添加底部间距 */
+}
+
+.tab-panel h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.tab-panel p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    color: #b0b0b0;
+}
+.card {
+    background-color: #252526;
+    border-radius: 8px;
+    padding: 24px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    border-left: 4px solid #007acc;
+}
+.user-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #252526;
+    border-radius: 8px;
+    padding: 24px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    border-left: 4px solid #007acc;
+    margin-bottom: 20px;
+}
+
+.user-card a {
+    color: #aedfff;
+    text-decoration: none;
+}
+
+.user-card a:hover {
+    background-color: rgba(111, 212, 255, 0.311);
+    transition: all 0.3s ease;
+    border-radius: 4px;
+}
+
+.card h3 {
+    font-size: 18px;
+    margin-bottom: 12px;
+    color: #ffffff;
+}
+
+.card p {
+    font-size: 14px;
+    color: #b0b0b0;
+    margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+    .tab-header {
+        padding: 0 10px;
+    }
+    
+    .tab-btn {
+        padding: 14px 16px;
+        font-size: 12px;
+    }
+    
+    .tab-panel {
+        padding: 20px;
+    }
+    
+    .tab-panel h2 {
+        font-size: 20px;
+    }
+    
+    .card {
+        padding: 16px;
+    }
+}
