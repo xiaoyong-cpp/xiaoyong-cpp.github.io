@@ -1,0 +1,167 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #060a1c;
+}
+
+#scene {
+  position: fixed;
+  inset: 0;
+  display: block;
+  cursor: crosshair;
+}
+
+@keyframes hintFade {
+  0%, 60% { opacity: 1; }
+  100%    { opacity: 0; }
+}
+
+/* ---------- 文字层 ---------- */
+#stage {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  font-family: "Noto Serif SC", "Source Han Serif SC", "Songti SC", "SimSun", serif;
+}
+
+#line {
+  position: absolute;
+  left: 50%;
+  top: 28%;
+  transform: translateX(-50%);
+  width: min(620px, 78vw);
+  text-align: center;
+  font-size: 17px;
+  line-height: 2.0;
+  letter-spacing: 0.08em;
+  color: #cfc6dd;
+  opacity: 0;
+  transition: opacity 1800ms ease-in-out;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* ---------- 选项 ---------- */
+#choices {
+  position: absolute;
+  left: 50%;
+  bottom: 7%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px 30px;
+  width: min(720px, 86vw);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 700ms ease-out;
+}
+
+#choices.on {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.choice {
+  background: none;
+  border: 0;
+  padding: 6px 4px;
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 1.8;
+  letter-spacing: 0.10em;
+  color: rgba(207, 198, 221, 0.62);
+  cursor: pointer;
+  transition: color 500ms ease, letter-spacing 500ms ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.choice:hover,
+.choice:focus {
+  color: rgba(238, 231, 248, 0.95);
+  letter-spacing: 0.14em;
+  outline: none;
+}
+
+.choice.ghost {
+  color: rgba(148, 143, 162, 0.28);
+}
+
+.choice.ghost:hover,
+.choice.ghost:focus {
+  color: rgba(176, 171, 190, 0.5);
+}
+
+/* ---------- 天数 ---------- */
+#day {
+  position: absolute;
+  left: 32px;
+  top: 26px;
+  font-size: 15px;
+  line-height: 1.8;
+  letter-spacing: 0.18em;
+  color: rgba(207, 198, 221, 0.45);
+}
+
+/* ---------- 微刻度 ---------- */
+#gauges {
+  position: absolute;
+  right: 34px;
+  bottom: 30px;
+  display: flex;
+  align-items: flex-end;
+  gap: 9px;
+  opacity: 0;
+  transition: opacity 2000ms ease-in;
+}
+
+#gauges.on {
+  opacity: 1;
+}
+
+.gauge {
+  position: relative;
+  width: 1px;
+  height: 40px;
+}
+
+.gauge.hp {
+  height: 50px;
+}
+
+.gauge span {
+  position: absolute;
+  left: 0;
+  width: 1px;
+  height: 0;
+  opacity: 0.6;
+  transition: height 400ms ease;
+}
+
+/* 红生命 / 黄食物 / 绿精神 / 蓝羁绊 */
+.gauge.hp span { background: #c06b72; }
+.gauge.food span { background: #c9a664; }
+.gauge.sanity span { background: #7fae86; }
+.gauge.bond span { background: #6f8fc4; }
+
+.gauge .bot {
+  bottom: 0;
+}
+
+.gauge .top {
+  bottom: 22px;
+}
+
+/* ---------- 黑屏 ---------- */
+#veil {
+  position: absolute;
+  inset: 0;
+  background: #04050c;
+  opacity: 0;
+  transition: opacity 3000ms ease-in;
+}
