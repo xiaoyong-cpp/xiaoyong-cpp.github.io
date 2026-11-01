@@ -5,6 +5,9 @@ html, body {
   height: 100%;
   overflow: hidden;
   background: #060a1c;
+  -webkit-text-size-adjust: 100%;
+  overscroll-behavior: none;
+  touch-action: manipulation;
 }
 
 #scene {
@@ -100,8 +103,8 @@ html, body {
 /* ---------- 天数 ---------- */
 #day {
   position: absolute;
-  left: 32px;
-  top: 26px;
+  left: calc(32px + env(safe-area-inset-left, 0px));
+  top: calc(26px + env(safe-area-inset-top, 0px));
   font-size: 15px;
   line-height: 1.8;
   letter-spacing: 0.18em;
@@ -111,8 +114,8 @@ html, body {
 /* ---------- 微刻度 ---------- */
 #gauges {
   position: absolute;
-  right: 34px;
-  bottom: 30px;
+  right: calc(34px + env(safe-area-inset-right, 0px));
+  bottom: calc(30px + env(safe-area-inset-bottom, 0px));
   display: flex;
   align-items: flex-end;
   gap: 9px;
@@ -164,4 +167,70 @@ html, body {
   background: #04050c;
   opacity: 0;
   transition: opacity 3000ms ease-in;
+}
+
+/* ---------- 竖屏提示 ---------- */
+#rotate {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #04050c;
+  text-align: center;
+  font-family: "Noto Serif SC", "Source Han Serif SC", "Songti SC", "SimSun", serif;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+
+#rotate .main {
+  font-size: 19px;
+  line-height: 2.0;
+  letter-spacing: 0.26em;
+  color: rgba(207, 198, 221, 0.72);
+}
+
+#rotate .sub {
+  margin-top: 12px;
+  font-size: 13px;
+  line-height: 2.0;
+  letter-spacing: 0.14em;
+  color: rgba(207, 198, 221, 0.34);
+}
+
+@media (orientation: portrait) {
+  #rotate { display: flex; }
+  #stage { display: none; }
+}
+
+/* ---------- 小屏横屏 ---------- */
+@media (max-height: 460px) {
+  #line {
+    top: 23%;
+    font-size: 15px;
+    width: min(560px, 82vw);
+  }
+
+  #choices {
+    bottom: 5%;
+    gap: 6px 22px;
+    width: min(680px, 92vw);
+  }
+
+  .choice {
+    font-size: 15px;
+    padding: 5px 2px;
+  }
+
+  #day {
+    left: calc(20px + env(safe-area-inset-left, 0px));
+    top: calc(14px + env(safe-area-inset-top, 0px));
+    font-size: 13px;
+  }
+
+  #gauges {
+    right: calc(20px + env(safe-area-inset-right, 0px));
+    bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+  }
 }
