@@ -101,6 +101,14 @@
     lg.addColorStop(1, "rgba(0,0,0,0)");
     g.fillStyle = lg;
     g.fillRect(0, 0, w, h);
+    // 上下同样渐隐：否则被精灵边界裁掉的雾团会留下一条横向硬边
+    var vg = g.createLinearGradient(0, 0, 0, h);
+    vg.addColorStop(0, "rgba(0,0,0,0)");
+    vg.addColorStop(0.22, "rgba(0,0,0,1)");
+    vg.addColorStop(0.78, "rgba(0,0,0,1)");
+    vg.addColorStop(1, "rgba(0,0,0,0)");
+    g.fillStyle = vg;
+    g.fillRect(0, 0, w, h);
     g.globalCompositeOperation = "source-over";
     return c;
   }
@@ -674,8 +682,10 @@
     var t = now / 1000;
 
     // 环境参数逐帧逼近目标：时段、天气都是极慢的位移，不做硬切
+    // 用 dt 换算，保证低帧率设备上暴风雪停息后不会拖着残雾很久
+    var easeK = Math.min(1, dt * 2.7);
     for (var k in vis) {
-      if (vis.hasOwnProperty(k)) vis[k] = lerp(vis[k], env[k], 0.045);
+      if (vis.hasOwnProperty(k)) vis[k] = lerp(vis[k], env[k], easeK);
     }
 
     camX = lerp(camX, tgtX, 0.045);

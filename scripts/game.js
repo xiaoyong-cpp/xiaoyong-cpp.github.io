@@ -1,7 +1,7 @@
 (function () {
   "use strict";
 
-  var SEGMENTS = ["day", "dusk", "dawn", "night"];
+  var SEGMENTS = ["dawn", "day", "dusk", "night"];
 
   var FAST = /(^|&)fast=1(&|$)/.test(location.search.replace(/^\?/, ""));
   var SPEED = FAST ? 4 : 1;
